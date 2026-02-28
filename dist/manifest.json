@@ -35,7 +35,21 @@
         "mac": "Command+Shift+Right"
       },
       "description": "Next Chapter"
+    },
+    "prev_video": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Up",
+        "mac": "Command+Shift+Up"
+      },
+      "description": "Previous Video"
+    },
+    "next_video": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Down",
+        "mac": "Command+Shift+Down"
+      },
+      "description": "Next Video"
     }
   },
-  "permissions": ["activeTab", "scripting"]
+  "permissions": ["activeTab", "scripting", "storage"]
 }

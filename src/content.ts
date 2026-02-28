@@ -54,4 +54,16 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
         setTimeout(() => sendResponse(currentStatus), 50);
         return true;
     }
+
+    if (request.action === 'next_video') {
+        window.postMessage({ source: 'yt-chapter-controller-content', action: 'next_video' }, '*');
+        setTimeout(() => sendResponse(currentStatus), 50);
+        return true;
+    }
+    
+    if (request.action === 'prev_video') {
+        window.postMessage({ source: 'yt-chapter-controller-content', action: 'prev_video' }, '*');
+        setTimeout(() => sendResponse(currentStatus), 50);
+        return true;
+    }
 });

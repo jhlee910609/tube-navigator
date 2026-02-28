@@ -1,0 +1,58 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+    # Alternatively, you can trigger this when you push a tag:
+    # tags:
+    #   - 'v*'
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    
+    # Required to allow the GitHub Action to create a Release
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Build the Vite project (produces the `dist` folder)
+      - name: Build extension
+        run: npm run build
+
+      # 5. Zip the `dist` folder for distribution
+      - name: Package extension into ZIP
+        run: |
+          cd dist
+          zip -r ../youtube-chapter-controller.zip *
+          cd ..
+
+      # 6. Create a GitHub Release and upload the ZIP file
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Automated Build #${{ github.run_number }}
+          body: |
+            Automated build from the `main` branch.
+            Download the `youtube-chapter-controller.zip` file below, extract it, and load it into Chrome via `chrome://extensions/`.
+          files: youtube-chapter-controller.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

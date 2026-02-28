@@ -122,6 +122,22 @@ window.addEventListener('message', (event) => {
     if (event.data.action === 'prev_chapter') {
         navChapter('prev');
     }
+
+    if (event.data.action === 'next_video') {
+        const nextBtn = document.querySelector('.ytp-next-button') as HTMLElement | null;
+        if (nextBtn) {
+            nextBtn.click();
+        }
+    }
+
+    if (event.data.action === 'prev_video') {
+        const prevBtn = document.querySelector('.ytp-prev-button') as HTMLElement | null;
+        if (prevBtn && prevBtn.getAttribute('aria-disabled') !== 'true' && prevBtn.style.display !== 'none') {
+            prevBtn.click();
+        } else {
+            window.history.back(); // Fallback if no prev button (e.g. not in playlist)
+        }
+    }
 });
 
 // Initial status
