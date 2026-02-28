@@ -1,0 +1,1 @@
+chrome.commands.onCommand.addListener(async r=>{if(r==="next_chapter"||r==="prev_chapter")try{const e=await chrome.tabs.query({url:"*://*.youtube.com/watch*"});if(e.length===0)return;const t=e.find(a=>a.audible)||e[0];t&&t.id&&chrome.tabs.sendMessage(t.id,{action:r})}catch(e){console.error("Error sending message from background:",e)}});

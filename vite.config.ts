@@ -6,7 +6,8 @@ export default defineConfig({
       input: {
         popup: 'index.html',
         content: 'src/content.ts',
-        inject: 'src/inject.ts'
+        inject: 'src/inject.ts',
+        background: 'src/background.ts'
       },
       output: {
         entryFileNames: 'src/[name].js',

@@ -18,5 +18,24 @@
       "matches": ["*://*.youtube.com/*"]
     }
   ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "commands": {
+    "prev_chapter": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Left",
+        "mac": "Command+Shift+Left"
+      },
+      "description": "Previous Chapter"
+    },
+    "next_chapter": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Right",
+        "mac": "Command+Shift+Right"
+      },
+      "description": "Next Chapter"
+    }
+  },
   "permissions": ["activeTab", "scripting"]
 }

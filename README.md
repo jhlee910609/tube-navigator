@@ -9,6 +9,7 @@ Have you ever been taking notes, coding, or browsing on another tab, only to rea
 - **Cross-Tab Control:** Control your YouTube video's chapters from any active tab. If you have multiple YouTube tabs open, it intelligently prioritizes the one currently playing audio.
 - **Accurate Navigation:** Extracts precise timestamp data directly from the video's description or metadata to ensure perfectly accurate seeks.
 - **Modern Minimalist UI:** A clean, zero-distraction popup that displays the current video title and chapter status.
+- **Keyboard Shortcuts:** Use `Cmd + Shift + Left/Right` (Mac) or `Ctrl + Shift + Left/Right` (Windows) to instantly skip chapters without opening the popup!
 - **Built for Speed:** Written in Vanilla TypeScript and bundled with Vite for a lightning-fast footprint without heavy framework overheads.
 
 ## 🛠️ Tech Stack
