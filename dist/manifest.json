@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Chapter Controller",
+  "version": "1.0.0",
+  "description": "Navigate between YouTube video chapters easily.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/watch*"],
+      "js": ["src/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/inject.js"],
+      "matches": ["*://*.youtube.com/*"]
+    }
+  ],
+  "permissions": ["activeTab", "scripting"]
+}
